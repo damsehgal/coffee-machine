@@ -13,7 +13,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * Integration test class which tests the coffee maker
+ * can be run via mvn test
+ */
 public class IntegrationTest {
 
     Ingredient hot_water;

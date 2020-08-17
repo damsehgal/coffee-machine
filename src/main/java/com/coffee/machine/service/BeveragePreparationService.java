@@ -4,11 +4,13 @@ import com.coffee.machine.model.Beverage;
 import com.coffee.machine.business.CoffeeMachine;
 import com.coffee.machine.model.Response;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * service class used for preparing a list of beverages by a particular coffee machine
+ */
 public class BeveragePreparationService {
 
     CoffeeMachine coffeeMachine;

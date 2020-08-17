@@ -16,6 +16,11 @@ public class CoffeeMachine {
         ingredientQuantity = new HashMap<>();
     }
 
+    /**
+     * adds specified quantity of  ingredient to the coffee maker
+     * @param ingredient
+     * @param quantity
+     */
     public void addIngredient(Ingredient ingredient, Integer quantity) {
         ingredientQuantity.put(ingredient,
                 quantity + ingredientQuantity.getOrDefault(ingredient, 0));
@@ -24,6 +29,12 @@ public class CoffeeMachine {
     public int getOutlets() {
         return outlets;
     }
+
+    /**
+     * Checks weather a given beverage can be prepared using ingredients present in coffee maker
+     * @param beverage
+     * @return Response true if beverage can be prepared using the ingredients
+     */
     public Response canPrepareBeverage(Beverage beverage) {
         for (Ingredient ingredient :  beverage.getRecipe().getIngredients()) {
             if (beverage.getRecipe().getIngredientQuantity(ingredient) >
@@ -35,6 +46,11 @@ public class CoffeeMachine {
         return new Response(true);
     }
 
+    /**
+     * prepares a beverage and consumes the ingredients
+     * also logs weather an ingredient has reached threshold after making this beverage
+     * @param beverage
+     */
     public void prepareBeverage(Beverage beverage)  {
         if(canPrepareBeverage(beverage).isSuccess()) {
            for (Ingredient ingredient : beverage.getRecipe().getIngredients()) {
@@ -48,9 +64,5 @@ public class CoffeeMachine {
         } else {
             throw new RuntimeException("Can't prepare beverage: " + beverage);
         }
-    }
-
-    public void getResponse(Beverage beverage) {
-
     }
 }
